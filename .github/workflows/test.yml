@@ -6,16 +6,14 @@ on:
          logLevel:
            description: 'Log level'     
            required: true
-           default: 'test1' 
+           default: 'test-1' 
            type: choice
            options:
             - test-1
             - test-2
             - test-3
             - test-4
-              paths-ignore:
-                - '.github/**'
-                - '.nomad/**'
+              
 env:
   # Organization Secrets
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
