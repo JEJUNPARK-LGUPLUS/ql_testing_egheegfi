@@ -1,4 +1,4 @@
-name: DEV - Deploy to Nomad Cluster
+name: DEV - test
 
 on:
   workflow_dispatch:
