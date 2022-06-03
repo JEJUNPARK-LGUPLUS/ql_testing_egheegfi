@@ -2,7 +2,7 @@ name: DEV - Deploy to Nomad Cluster
 
 on:
   push:
-    #branches: [ develop ]
+    branches: [ develop ]
     
 env:
   # Organization Secrets
