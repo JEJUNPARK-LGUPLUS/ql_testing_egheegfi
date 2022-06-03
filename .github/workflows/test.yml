@@ -22,8 +22,7 @@ env:
 
   APP_NAME:  quick-launcher       # Application 이름. Image TAG Prefix로 사용 됨
   AWS_REGION: ap-northeast-2       # AWS EKS & ECR이 위치한 AWS Region
-  DEPLOY_ENV : dev
-  
+  DEPLOY_ENV : ${{ github.event.inputs.logLevel }}  
 jobs:
   build:
     name: Build and Push Docker Image
@@ -86,7 +85,7 @@ jobs:
       run: |
         aws ecr get-login-password --region ap-northeast-2 | sudo docker login --username AWS --password-stdin 868771833856.dkr.ecr.ap-northeast-2.amazonaws.com
         # Waypoint build
-        sudo waypoint build -var="image_tag=${{ env.short_sha }}"
+        sudo waypoint build -var="image_tag=${{ env.short_sha }}-${{ env.DEPLOY_ENV }}"
         
         
   deploy:
@@ -108,7 +107,7 @@ jobs:
     - name: Deploy to Nomad
       id: deploy-nomad
       env:
-        ECR_IMAGE: "868771833856.dkr.ecr.ap-northeast-2.amazonaws.com/testing_egheegfi:${{ env.short_sha }}"
+        ECR_IMAGE: "868771833856.dkr.ecr.ap-northeast-2.amazonaws.com/testing_egheegfi:${{ env.short_sha }}-${{ env.DEPLOY_ENV }}"
       run: |
         curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
         sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
