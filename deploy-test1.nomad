@@ -1,4 +1,4 @@
-job testing_egheegfi-test1 {
+job testing_egheegfi_test1 {
 
   datacenters = ["dc1"]
 
