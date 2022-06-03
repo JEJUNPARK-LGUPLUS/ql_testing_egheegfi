@@ -7,7 +7,7 @@ job testing_egheegfi_test3 {
     network {
       mode = "bridge"
       port "http" {
-        static = 20561
+        static = 20563
         to = 5000
       }
     }
