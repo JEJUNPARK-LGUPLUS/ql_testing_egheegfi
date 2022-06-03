@@ -6,13 +6,13 @@ on:
          logLevel:
            description: 'Log level'     
            required: true
-           default: 'test-1' 
+           default: 'test1' 
            type: choice
            options:
-            - test-1
-            - test-2
-            - test-3
-            - test-4
+            - test1
+            - test2
+            - test3
+            - test4
               
 env:
   # Organization Secrets
