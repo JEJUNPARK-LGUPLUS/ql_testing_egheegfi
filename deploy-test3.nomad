@@ -1,6 +1,6 @@
 job testing_egheegfi_test3 {
 
-  datacenters = ["dc1"]
+  datacenters = ["dc-test"]
 
   group "quick-launcher" {
     count = 1
