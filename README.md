@@ -21,7 +21,7 @@ dsa
 1. `waypoint up`
 1. Visit a URL provided in the `waypoint` output.
 
-## Configuring Waypoint for Cloud Foundry Paketo or GCP Buildpacks.
+## Configuring Waypoint for Cloud Foundry Paketo or dGCP Buildpacks.
 
 Copy the contents of `waypoint.hcl.paketo` or `waypoint.hcl.gcp` file into `waypoint.hcl` or run a command like `cp waypoint.hcl.paketo waypoint.hcl` from the base directory. Then you can run the `waypoint` commands as described above.
 
