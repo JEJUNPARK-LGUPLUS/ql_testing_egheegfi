@@ -106,6 +106,6 @@ jobs:
         sudo apt-get update && sudo apt-get install nomad
         aws ecr get-login-password --region ap-northeast-2 | sudo docker login --username AWS --password-stdin 868771833856.dkr.ecr.ap-northeast-2.amazonaws.com
         cnt=`nomad job status -address=${{ env.NOMAD_CLUSTER }} -token=${{ env.NOMAD_TOKEN }} | grep testing_egheegfi | wc -l`
-        if [ ${cnt} != 0  ]; then nomad job stop -purge -token=${{ env.NOMAD_TOKEN }} -address=${{ env.NOMAD_CLUSTER }} testing_egheegfi; fi
+        # if [ ${cnt} != 0  ]; then nomad job stop -purge -token=${{ env.NOMAD_TOKEN }} -address=${{ env.NOMAD_CLUSTER }} testing_egheegfi; fi
         nomad job run -address=${{ env.NOMAD_CLUSTER }} -token=${{ env.NOMAD_TOKEN }} -var=image=${{ env.ECR_IMAGE }} ./deploy.nomad
 

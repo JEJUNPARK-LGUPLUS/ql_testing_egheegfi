@@ -1,14 +1,13 @@
 job testing_egheegfi {
 
-  datacenters = ["dc1"]
+  datacenters = ["dc-quicklauncher"]
 
   group "quick-launcher" {
     count = 1
     network {
       mode = "bridge"
       port "http" {
-        static = 20559
-        to = 5000
+        static = 5000
       }
     }
 
